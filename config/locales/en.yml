@@ -50,3 +50,7 @@ en:
     back: 'Back'
     messages:
       confirm: 'Are you sure?'
+  notice:
+    create: 'Book was successfully created.'
+    update: 'Book was successfully updated.'
+    delete: 'Book was successfully destroyed.'

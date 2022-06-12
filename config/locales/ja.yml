@@ -50,6 +50,10 @@ ja:
     back: '戻る'
     messages:
       confirm: '本当に実行しますか？'
+  notice:
+    create: '登録が完了しました。'
+    update: '更新が完了しました。'
+    delete: '削除が完了しました。'
   helpers:
     submit:
       create: "%{model}を登録する"
