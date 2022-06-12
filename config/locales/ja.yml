@@ -44,10 +44,11 @@ ja:
       memo: 'メモ'
       author: '著者'
       picture: '画像'
-    show: '詳細'
-    edit: '編集'
-    destroy: '削除'
-    back: '戻る'
+    actions:
+      show: '詳細'
+      edit: '編集'
+      destroy: '削除'
+      back: '戻る'
     messages:
       confirm: '本当に実行しますか？'
   notice:

@@ -44,10 +44,11 @@ en:
       memo: 'Memo'
       author: 'Author'
       picture: 'Picture'
-    show: 'Show'
-    edit: 'Edit'
-    destroy: 'Destroy'
-    back: 'Back'
+    actions:
+      show: 'Show'
+      edit: 'Edit'
+      destroy: 'Destroy'
+      back: 'Back'
     messages:
       confirm: 'Are you sure?'
   notice:
