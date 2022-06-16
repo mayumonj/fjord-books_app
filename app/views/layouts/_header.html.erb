@@ -1,0 +1,13 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav>
+      <%= link_to "本一覧", books_path %>
+      <%= link_to "ユーザー一覧", users_path %>
+      <% if user_signed_in? %>
+        <%= link_to "アカウント情報", '#' %>
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path %>
+      <% end %>
+    </nav>
+  </div>
+</header>
