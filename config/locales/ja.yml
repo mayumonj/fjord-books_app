@@ -30,20 +30,12 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 ja:
-  hello: 'こんにちは'
-  books:
-    index:
-      title: '書籍一覧'
-      new: '新規書籍'
-    new:
-      title: '新規書籍'
-    edit:
-      title: '編集'
-    columns:
-      title: '題名'
-      memo: 'メモ'
-      author: '著者'
-      picture: '画像'
+  common:
+    views:
+      title:
+        index: "%{model}一覧"
+        new: "新規%{model}"
+        edit: "%{model}編集"
     actions:
       show: '詳細'
       edit: '編集'

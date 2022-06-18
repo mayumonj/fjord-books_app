@@ -30,20 +30,12 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: 'Hello'
-  books:
-    index:
-      title: 'Books'
-      new: 'New Book'
-    new:
-      title: 'New Book'
-    edit:
-      title: 'Editing Book'
-    columns:
-      title: 'Title'
-      memo: 'Memo'
-      author: 'Author'
-      picture: 'Picture'
+  common:
+    views:
+      title:
+        index: "%{model}"
+        new: "New %{model}"
+        edit: "Edit %{model}"
     actions:
       show: 'Show'
       edit: 'Edit'
