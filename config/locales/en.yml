@@ -223,6 +223,9 @@ en:
       delete_confirm: "Are you sure?"
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
+      sign_out: 'Sign out'
+      sign_in: 'Sign in'
+      required: 'required'
   controllers:
     common:
       notice_create: "%{name} was successfully created."

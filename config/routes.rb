@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  # get '/users/signup', to: 'users#new'
   resources :books
   resources :users
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   root 'books#index'
 end
