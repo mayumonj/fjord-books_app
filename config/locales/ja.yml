@@ -44,10 +44,11 @@ ja:
     messages:
       confirm: '本当に実行しますか？'
   notice:
-    create: '登録が完了しました。'
-    update: '更新が完了しました。'
-    delete: '削除が完了しました。'
+    create: "%{model}の登録が完了しました。"
+    update: "%{model}の更新が完了しました。"
+    delete: "%{model}の削除が完了しました。"
   helpers:
     submit:
       create: "%{model}を登録する"
       update: "%{model}を更新する"
+      delete: "%{model}を削除する"

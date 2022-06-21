@@ -30,25 +30,14 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  common:
-    views:
-      title:
-        index: "%{model}"
-        new: "New %{model}"
-        edit: "Edit %{model}"
-    actions:
-      show: 'Show'
-      edit: 'Edit'
-      destroy: 'Destroy'
-      back: 'Back'
-    messages:
-      confirm: 'Are you sure?'
-  notice:
-    create: "%{model} was successfully created."
-    update: "%{model} was successfully updated."
-    delete: "%{model} was successfully deleted."
-  helpers:
-    submit:
-      create: "Create %{model}"
-      update: "Update %{model}"
-      delete: "Delete %{model}"
+  activerecord:
+    models:
+      book: Book
+    attributes:
+      book:
+        title: Title
+        memo: Memo
+        author: Author
+        picture: Picture
+        created_at: Created_at
+        updated_at: Updated_at
