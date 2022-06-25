@@ -51,4 +51,3 @@ en:
     submit:
       create: "Create %{model}"
       update: "Update %{model}"
-      delete: "Delete %{model}"

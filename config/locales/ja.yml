@@ -51,4 +51,3 @@ ja:
     submit:
       create: "%{model}を登録する"
       update: "%{model}を更新する"
-      delete: "%{model}を削除する"
