@@ -218,6 +218,7 @@ ja:
       title_show: "%{name}の詳細"
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
+      index: "%{name}一覧"
     pagination:
       first: '最初'
       last: '最後'
@@ -238,3 +239,10 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  follow:
+    follow: "フォローする"
+    unfollow: "フォロー解除"
+    follow_message: "フォローしました"
+    unfollow_message: "フォロー解除しました"
+    followee: "フォロー"
+    follower: "フォロワー"
