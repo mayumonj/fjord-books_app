@@ -6,25 +6,28 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_many :following_relationships, class_name: 'Follow',
+                                     foreign_key: 'follower_id',
+                                     dependent: :destroy,
+                                     inverse_of: :follower
+
+  has_many :followed_relationships, class_name: 'Follow',
+                                    foreign_key: 'followee_id',
+                                    dependent: :destroy,
+                                    inverse_of: :followee
+
+  has_many :followees, through: :following_relationships
+  has_many :followers, through: :followed_relationships
+
   def follow?(user)
-    !!Follow.find_by(followee_id: id, follower_id: user.id)
+    !!following_relationships.find_by(followee_id: user.id)
   end
 
-  def count_followees
-    Follow.group(:followee_id).count[id] || 0
+  def follow(user)
+    following_relationships.create(followee_id: user.id)
   end
 
-  def count_followers
-    Follow.group(:follower_id).count[id] || 0
-  end
-
-  def followees
-    follower_ids = Follow.where(followee_id: id).map(&:follower_id)
-    User.order(:id).find(follower_ids)
-  end
-
-  def followers
-    followee_ids = Follow.where(follower_id: id).map(&:followee_id)
-    User.order(:id).find(followee_ids)
+  def unfollow(user)
+    following_relationships.find_by(followee_id: user.id)&.destroy
   end
 end

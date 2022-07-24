@@ -1,38 +1,20 @@
 # frozen_string_literal: true
 
 class FollowsController < ApplicationController
-  # GET user/:user_id/followees
-  def followees
-    @followees = User.find_by(id: params[:user_id]).followees
-  end
-
-  # GET user/:user_id/followers
-  def followers
-    @followers = User.find_by(id: params[:user_id]).followers
-  end
-
-  # POST /follows/:followee_id
+  # POST /follows
   def create
-    follow = Follow.new(followee_id: current_user.id, follower_id: params[:followee_id])
-    respond_to do |format|
-      if follow.save
-        format.html { redirect_to user_path(params[:followee_id]), notice: t('follow.follow_message', name: Follow.model_name.human) }
-      else
-        format.html { redirect_to user_path(params[:followee_id]), notice: t('errors.template.header.one', model: Follow.model_name.human) }
-      end
-    end
+    user = User.find(params[:follow][:followee_id])
+    current_user.follow(user)
+    redirect_to user
   end
 
-  # DELETE /follows/:followee_id
+  # DELETE /follows/:id
   def destroy
-    follow = Follow.find_by(followee_id: current_user.id, follower_id: params[:followee_id])
-    respond_to do |format|
-      if follow.destroy
-        format.html { redirect_to user_path(params[:followee_id]), notice: t('follow.unfollow_message', name: Follow.model_name.human) }
-      else
-        format.html { redirect_to user_path(params[:followee_id]), notice: t('errors.template.header.one', name: Follow.model_name.human) }
-      end
-    end
+    user = Follow.find(params[:id]).followee
+    current_user.unfollow(user)
+    redirect_to user
+  rescue ActiveRecord::RecordNotFound
+    redirect_back(fallback_location: users_path)
   end
 
   private

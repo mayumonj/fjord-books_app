@@ -1,5 +1,4 @@
-<h1><%=User.find_by(id: params[:user_id]).name %>: <%= t('views.common.index', name: t('follow.follower')) %></h1>
-
+<h1><%=User.find_by(id: params[:id]).name %>: <%= t('views.common.index', name: t('follow.follower')) %></h1>
 <table>
   <thead>
     <tr>
@@ -27,4 +26,4 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to t('views.common.back'), user_path(params[:user_id]) %>
+<%= link_to t('views.common.back'), user_path(params[:id]) %>
