@@ -1,29 +1,3 @@
-<h1><%=User.find_by(id: params[:id]).name %>: <%= t('views.common.index', name: t('follow.follower')) %></h1>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th><%= User.human_attribute_name(:email) %></th>
-      <th><%= User.human_attribute_name(:name) %></th>
-      <th><%= User.human_attribute_name(:postal_code) %></th>
-      <th><%= User.human_attribute_name(:address) %></th>
-    </tr>
-  </thead>
+<h1><%= @user.name %>: <%= t('views.common.index_of', name: User.human_attribute_name(:followers)) %></h1>
 
-  <tbody>
-    <% @followers.each do |user| %>
-      <tr>
-        <th>
-          <% if user.avatar.attached? %>
-            <%= image_tag user.avatar.variant(resize_to_fill: [30, 30])%>
-          <% end %>
-        </th>
-        <td><%= user.email %></td>
-        <td><%= user.name %></td>
-        <td><%= user.postal_code %></td>
-        <td><%= user.address %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to t('views.common.back'), user_path(params[:id]) %>
+<%= render partial: 'user_list', locals: {users: @followers}  %>

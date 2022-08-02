@@ -35,30 +35,27 @@
 
 <p>
   <strong><%= t('follow.followee') %>:</strong>
-  <%= @user.followees.count %> : <%= link_to t('views.common.index', name: nil), followees_user_path(@user.id) %>
+  <%= @user.followees.count %> : <%= link_to t('views.common.index'), followees_user_path(@user) %>
 </p>
 
 <p>
   <strong><%= t('follow.follower') %>:</strong>
-  <%= @user.followers.count %> : <%= link_to t('views.common.index', name: nil), followers_user_path(@user.id) %>
+  <%= @user.followers.count %> : <%= link_to t('views.common.index'), followers_user_path(@user) %>
 </p>
 
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% else %>
   <% if current_user.follow?(@user) %>
-
-    <%= form_with model: current_user.following_relationships.find_by(followee_id: @user.id),html: { method: :delete } do |f| %>
-      <%= f.submit "Unfollow", class: "btn" %>
+    <%= form_with url: follow_path, method: :delete do |f| %>
+      <%= f.hidden_field :followee_id, value: @user.id %>
+      <%= f.submit t('follow.unfollow')%>
     <% end %>
-  
   <% else %>
-  
     <%= form_with model: current_user.following_relationships.build do |f| %>
-      <div><%= f.hidden_field :followee_id, value: @user.id %></div>
-      <%= f.submit "Follow", class: "btn btn-primary" %>
+      <%= f.hidden_field :followee_id, value: @user.id %>
+      <%= f.submit t('follow.follow') %>
     <% end %>
-  
   <% end %>
 <% end %>
 <%= link_to t('views.common.back'), users_path %>

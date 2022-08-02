@@ -6,16 +6,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.target_user(params)
   end
 
-  # GET user/:user_id/followees
   def followees
-    @followees = User.find_by(id: params[:id]).followees
+    @user = User.target_user(params)
+    @followees = @user.followees
   end
 
-  # GET user/:user_id/followers
   def followers
-    @followers = User.find_by(id: params[:id]).followers
+    @user = User.target_user(params)
+    @followers = @user.followers
   end
 end

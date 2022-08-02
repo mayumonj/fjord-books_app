@@ -227,6 +227,7 @@ en:
       sign_out: "Sign out"
       minimum_length: "%{length} characters minimum"
       index: "List"
+      index_of: "List of %{name}"
   controllers:
     common:
       notice_create: "%{name} was successfully created."

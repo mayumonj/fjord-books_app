@@ -20,14 +20,10 @@ class User < ApplicationRecord
   has_many :followers, through: :followed_relationships
 
   def follow?(user)
-    !!following_relationships.find_by(followee_id: user.id)
+    following_relationships.exists?(followee: user)
   end
 
-  def follow(user)
-    following_relationships.create(followee_id: user.id)
-  end
-
-  def unfollow(user)
-    following_relationships.find_by(followee_id: user.id)&.destroy
+  def self.target_user(params)
+    find_by(id: params[:id])
   end
 end

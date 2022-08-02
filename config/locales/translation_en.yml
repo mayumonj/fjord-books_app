@@ -17,6 +17,8 @@ en:
         address: Address
         self_introduction: Self introduction
         avatar: "User image"
+        followees: Followees
+        followers: Followers
       follow:
         followee: Followee
         follower: Follower
