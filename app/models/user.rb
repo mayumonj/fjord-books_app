@@ -6,12 +6,12 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  has_many :following_relationships, class_name: 'Follow',
+  has_many :following_relationships, class_name: 'Relationship',
                                      foreign_key: 'follower_id',
                                      dependent: :destroy,
                                      inverse_of: :follower
 
-  has_many :followed_relationships, class_name: 'Follow',
+  has_many :followed_relationships, class_name: 'Relationship',
                                     foreign_key: 'followee_id',
                                     dependent: :destroy,
                                     inverse_of: :followee
@@ -21,9 +21,5 @@ class User < ApplicationRecord
 
   def follow?(user)
     following_relationships.exists?(followee: user)
-  end
-
-  def self.target_user(params)
-    find_by(id: params[:id])
   end
 end

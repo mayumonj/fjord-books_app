@@ -240,10 +240,13 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
-  follow:
+  relationship:
     follow: "フォローする"
     unfollow: "フォロー解除"
     follow_message: "フォローしました"
     unfollow_message: "フォロー解除しました"
     followee: "フォロー"
     follower: "フォロワー"
+    user_not_found: "対象のユーザが見つかりませんでした"
+    follow_failed: "フォローに失敗しました。恐れ入りますが時間をおいて再度お試しください。"
+    unfollow_failed: "フォロー解除に失敗しました。恐れ入りますが時間をおいて再度お試しください。"

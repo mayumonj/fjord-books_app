@@ -3,7 +3,7 @@ ja:
     models:
       book: 本  #g
       user: ユーザ
-      follow: フォロー
+      relationship: 関係
 
     attributes:
       book:
@@ -19,6 +19,6 @@ ja:
         avatar: ユーザ画像
         followees: フォロー
         followers: フォロワー
-      follow:
+      relationship:
         followee: フォロー
         follower: フォロワー

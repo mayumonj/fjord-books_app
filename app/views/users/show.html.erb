@@ -1,5 +1,5 @@
 <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
-
+<%= flash[:error] %>
 <p>
   <strong><%= User.human_attribute_name(:email) %>:</strong>
   <%= @user.email %>
@@ -34,12 +34,12 @@
 </p>
 
 <p>
-  <strong><%= t('follow.followee') %>:</strong>
+  <strong><%= t('relationship.followee') %>:</strong>
   <%= @user.followees.count %> : <%= link_to t('views.common.index'), followees_user_path(@user) %>
 </p>
 
 <p>
-  <strong><%= t('follow.follower') %>:</strong>
+  <strong><%= t('relationship.follower') %>:</strong>
   <%= @user.followers.count %> : <%= link_to t('views.common.index'), followers_user_path(@user) %>
 </p>
 
@@ -47,14 +47,14 @@
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% else %>
   <% if current_user.follow?(@user) %>
-    <%= form_with url: follow_path, method: :delete do |f| %>
+    <%= form_with url: relationship_path, method: :delete do |f| %>
       <%= f.hidden_field :followee_id, value: @user.id %>
-      <%= f.submit t('follow.unfollow')%>
+      <%= f.submit t('relationship.unfollow')%>
     <% end %>
   <% else %>
     <%= form_with model: current_user.following_relationships.build do |f| %>
       <%= f.hidden_field :followee_id, value: @user.id %>
-      <%= f.submit t('follow.follow') %>
+      <%= f.submit t('relationship.follow') %>
     <% end %>
   <% end %>
 <% end %>

@@ -3,7 +3,7 @@ en:
     models:
       book: Book  #g
       user: User
-      follow: Follow
+      relationship: Relationship
 
     attributes:
       book:
@@ -19,6 +19,6 @@ en:
         avatar: "User image"
         followees: Followees
         followers: Followers
-      follow:
+      relationship:
         followee: Followee
         follower: Follower
