@@ -1,0 +1,12 @@
+<h1>User List</h1>
+
+<table>
+  <tbody>
+ <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= link_to t('views.users.detail'), user_path(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</tabl
