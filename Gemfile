@@ -42,6 +42,7 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
+  gem 'letter_opener_web', '~> 2.0'
 end
 
 group :test do
