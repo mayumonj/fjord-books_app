@@ -1,4 +1,6 @@
-#/Users/Iam/.Trash/users.scss frozen_string_literal: true
+# frozen_string_literal: true
+
+# /Users/Iam/.Trash/users.scss frozen_string_literal: true
 
 module BooksHelper
 end

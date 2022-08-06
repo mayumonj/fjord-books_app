@@ -52,6 +52,5 @@ puts '初期データの投入が完了しました。' # rubocop:disable Rails/
     postal_code: Faker::Address.postcode,
     address: Faker::Address.state,
     seif_introduction: Faker::String.random
-
   )
 end
