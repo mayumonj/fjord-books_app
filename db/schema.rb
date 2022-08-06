@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_08_05_225424) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "postal_code"
+    t.string "postal_code"
     t.string "address"
     t.string "seif_introduction"
     t.string "name"
