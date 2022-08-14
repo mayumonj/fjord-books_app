@@ -2,13 +2,9 @@
 
 class RelationshipsController < ApplicationController
   def create
-    followee = User.find_by(id: params[:relationship]&.[](:followee_id))
+    followee = User.find_by(id: params.dig(:relationship, :followee_id))
     if followee
-      begin
-        current_user.following_relationships.create!(followee: followee)
-      rescue StandardError
-        flash[:error] = t('relationship.follow_failed')
-      end
+      current_user.following_relationships.create!(followee: followee) unless current_user.follow?(followee)
       redirect_to followee
     else
       flash[:error] = t('relationship.user_not_found')
@@ -17,11 +13,7 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    begin
-      Relationship.find_by(followee_id: params[:followee_id], follower_id: current_user.id)&.destroy!
-    rescue StandardError
-      flash[:error] = t('relationship.unfollow_failed')
-    end
+    Relationship.find_by(followee_id: params[:followee_id], follower_id: current_user.id)&.destroy!
     redirect_to user_path(params[:followee_id])
   end
 end
