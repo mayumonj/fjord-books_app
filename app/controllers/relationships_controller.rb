@@ -3,11 +3,12 @@
 class RelationshipsController < ApplicationController
   def create
     followee = User.find_by(id: params.dig(:relationship, :followee_id))
-    if followee
-      current_user.following_relationships.create!(followee: followee) unless current_user.follow?(followee)
+    relationship = current_user.following_relationships.find_or_initialize_by(followee: followee)
+
+    if relationship.save
       redirect_to followee
     else
-      flash[:error] = t('relationship.user_not_found')
+      flash[:error] = t('relationship.follow_failed')
       redirect_to users_path
     end
   end
