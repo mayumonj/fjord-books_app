@@ -7,7 +7,9 @@ class UsersController < ApplicationController
     @users = User.with_attached_avatar.order(:id).page(params[:page])
   end
 
-  def show; end
+  def show
+    @relationship = current_user.following_relationships.find_by(followee: @user)
+  end
 
   def followees
     @followees = @user.followees
