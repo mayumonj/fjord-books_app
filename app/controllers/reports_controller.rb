@@ -37,7 +37,7 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    @report.destroy
+    @report.destroy if current_user == @report.user
     respond_to do |format|
       format.html { redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human) }
     end
