@@ -15,7 +15,13 @@
       <tr>
         <td><%= report.title %></td>
         <td><%= report.created_at %></td>
-        <td><%= report.user.name %></td>
+        <td>
+          <% unless report.user.name.empty? %>
+            <%= report.user.name %>
+          <% else %>
+            <%= report.user.email %>
+          <% end %>
+        </td>
         <td><%= link_to t('views.common.show'), report %></td>
       </tr>
     <% end %>

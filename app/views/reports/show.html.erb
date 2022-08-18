@@ -12,7 +12,11 @@
 
 <p>
   <strong><%= User.model_name.human %>:</strong>
-  <%= @report.user.name %>
+  <% unless @report.user.name.empty? %>
+    <%= @report.user.name %>
+  <% else %>
+    <%= @report.user.email %>
+  <% end %>
 </p>
 
 <p>
