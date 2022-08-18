@@ -2,7 +2,7 @@
 
 class RelationshipsController < ApplicationController
   def create
-    followee = User.find_by(id: params[:user_id])
+    followee = User.find_by(id: params[:followee_id])
     relationship = current_user.following_relationships.find_or_initialize_by(followee: followee)
     if relationship.save
       redirect_to followee
@@ -14,6 +14,6 @@ class RelationshipsController < ApplicationController
 
   def destroy
     Relationship.find_by(id: params[:id])&.destroy!
-    redirect_to user_path(params[:user_id])
+    redirect_to user_path(params[:followee_id])
   end
 end

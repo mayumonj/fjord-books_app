@@ -47,11 +47,13 @@
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% else %>
   <% if current_user.follow?(@user) %>
-    <%= form_with url: user_relationship_path(@user,@relationship), method: :delete do |f| %>
+    <%= form_with url: relationship_path(@relationship), method: :delete do |f| %>
+      <%= f.hidden_field :followee_id, value: @user.id %>
       <%= f.submit t('relationship.unfollow')%>
     <% end %>
   <% else %>
-    <%= form_with url: user_relationships_path(@user), method: :post do |f| %>
+    <%= form_with url: relationships_path, method: :post do |f| %>
+      <%= f.hidden_field :followee_id, value: @user.id %>
       <%= f.submit t('relationship.follow') %>
     <% end %>
   <% end %>
