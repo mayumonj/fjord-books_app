@@ -1,21 +1,25 @@
 <h2><%= Comment.model_name.human %></h2>
 
-<table>
-  <tbody>
-    <% commentable.comments.each do |comment| %>
-      <tr>
-        <td>
-          <% unless comment.user.name.empty? %>
-            <%= comment.user.name %>
-          <% else %>
-            <%= comment.user.email %>
-          <% end %>
-        </td>
-        <td><%= comment.created_at %></td>
-        <td><%= comment.text %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if commentable.comments.empty? %>
+  <p><%= t('comments.not_commented')%></p>
+<% else %>
+  <table>
+    <tbody>
+      <% commentable.comments.each do |comment| %>
+        <tr>
+          <td>
+            <% unless comment.user.name.empty? %>
+              <%= comment.user.name %>
+            <% else %>
+              <%= comment.user.email %>
+            <% end %>
+          </td>
+          <td><%= comment.created_at %></td>
+          <td><%= comment.text %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <%= render 'comments/form', {comment: commentable.comments.build, commentable: } %>

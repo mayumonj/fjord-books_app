@@ -252,6 +252,7 @@ ja:
       notice: "フォロー解除しました。"
   comments:
     create: コメントする
+    not_commented: コメントはまだありません。
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
