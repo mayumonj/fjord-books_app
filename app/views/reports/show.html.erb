@@ -29,4 +29,7 @@
   <%= link_to t('views.common.destroy'), @report, method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
 <% end %>
 <br>
+<br>
+<%= render 'comments/index', commentable: @report %>
+<br>
 <%= link_to t('views.common.back'), reports_path %>

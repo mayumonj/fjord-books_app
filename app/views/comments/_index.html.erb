@@ -1,0 +1,27 @@
+<h2><%= Comment.model_name.human %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Comment.human_attribute_name(:text) %></th>
+      <th><%= User.model_name.human %></th>
+      <th><%= Comment.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% commentable.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.text %></td>
+        <td>
+          <% unless comment.user.name.empty? %>
+            <%= comment.user.name %>
+          <% else %>
+            <%= comment.user.email %>
+          <% end %>
+        </td>
+        <td><%= comment.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
