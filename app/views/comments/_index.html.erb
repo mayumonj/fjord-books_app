@@ -14,7 +14,7 @@
               <%= comment.user.email %>
             <% end %>
           </td>
-          <td><%= comment.created_at %></td>
+          <td><%= l(comment.created_at.in_time_zone('Tokyo'), format: :default) %></td>
           <td><%= comment.text %></td>
         </tr>
       <% end %>
