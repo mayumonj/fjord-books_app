@@ -14,7 +14,7 @@
     <% @reports.each do |report| %>
       <tr>
         <td><%= report.title %></td>
-        <td><%= report.created_at %></td>
+        <td><%= l(report.created_at.in_time_zone('Tokyo'), format: :default) %></td>
         <td>
           <% unless report.user.name.empty? %>
             <%= report.user.name %>

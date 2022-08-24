@@ -7,7 +7,7 @@
 
 <p>
   <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
-  <%= @report.created_at %>
+  <%= l(@report.created_at.in_time_zone('Tokyo'), format: :default) %>
 </p>
 
 <p>
