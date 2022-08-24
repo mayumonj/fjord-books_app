@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  # before_action :set_commentable
-  # before_action :set_comment, only: %i[show edit update destroy]
+  before_action :set_comment, only: %i[destroy]
 
   def create
     comment = Comment.new(comment_params)
@@ -16,7 +15,18 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment.destroy if current_user == @comment.user
+    respond_to do |format|
+      format.html { redirect_to @comment.commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
+    end
+  end
+
   private
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
   def commentable(type, id)
     case type

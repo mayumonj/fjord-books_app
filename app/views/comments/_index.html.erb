@@ -16,6 +16,9 @@
           </td>
           <td><%= l(comment.created_at.in_time_zone('Tokyo'), format: :default) %></td>
           <td><%= comment.text %></td>
+          <% if comment.user == current_user %>
+            <td><%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
