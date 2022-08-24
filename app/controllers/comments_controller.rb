@@ -8,10 +8,11 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     comment.commentable = commentable(*(request.path.split('/')[1, 2]))
     comment.user = current_user
-    if comment.save
+    begin
+      comment.save!
       redirect_to comment.commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
-    else
-      redirect_to comment.commentable, notice: t('errors.template.header.one', model: Comment.model_name.human)
+    rescue StandardError => e
+      redirect_to comment.commentable, notice: e.message
     end
   end
 
