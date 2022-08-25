@@ -1,7 +1,7 @@
 <h3><%= t('comments.create') %></h3>
 <%= form_with(url: polymorphic_path([commentable, comment]) , local: true) do |form| %>
   <div class="field">
-    <%= form.text_area :text, required: true%>
+    <%= form.text_area :text, required: true %>
   </div>
   <div class="actions">
     <%= form.submit %>
