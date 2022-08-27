@@ -5,9 +5,8 @@ require 'application_system_test_case'
 class BooksTest < ApplicationSystemTestCase
   setup do
     @book = books(:cherry_book)
-    # ログイン処理を書く
     visit root_url
-    fill_in 'Eメール', with: 'alice@gmail.com'
+    fill_in 'Eメール', with: 'alice@example.com'
     fill_in 'パスワード', with: 'password'
     click_button 'ログイン'
   end
@@ -33,16 +32,36 @@ class BooksTest < ApplicationSystemTestCase
     click_on '戻る'
   end
 
-  test 'updating a Book' do
+  test 'updating a Book from index screen' do
     visit books_url
     click_on '編集', match: :prefer_exact
 
-    fill_in 'タイトル', with: @book.title
-    fill_in 'メモ', with: @book.memo
+    fill_in 'タイトル', with: '更新したタイトル'
+    fill_in 'メモ', with: '更新したメモ'
     click_on '更新する'
 
     assert_text '本が更新されました。'
-    click_on '戻る'
+    assert_text '更新したタイトル'
+    assert_text '更新したメモ'
+
+    assert_no_text 'プロを目指す人のためのRuby入門'
+    assert_no_text '名著です！！！'
+  end
+
+  test 'updating a Book from its detail screen' do
+    visit book_url(@book)
+    click_on '編集', match: :prefer_exact
+
+    fill_in 'タイトル', with: '更新したタイトル'
+    fill_in 'メモ', with: '更新したメモ'
+    click_on '更新する'
+
+    assert_text '本が更新されました。'
+    assert_text '更新したタイトル'
+    assert_text '更新したメモ'
+
+    assert_no_text 'プロを目指す人のためのRuby入門'
+    assert_no_text '名著です！！！'
   end
 
   test 'destroying a Book' do
@@ -52,5 +71,6 @@ class BooksTest < ApplicationSystemTestCase
     end
 
     assert_text '本が削除されました。'
+    assert_no_text 'プロを目指す人のためのRuby入門'
   end
 end

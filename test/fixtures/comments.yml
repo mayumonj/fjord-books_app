@@ -1,13 +1,23 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+comment_for_book_by_alice:
+  user: alice
+  commentable: cherry_book
+  commentable_type: Book
+  content: とても分かりやすかった！
 
-one:
-  user: one
-  commentable: one
-  commentable_type: Commentable
-  content: MyString
+comment_for_book_by_bob:
+  user: bob
+  commentable: cherry_book
+  commentable_type: Book
+  content: はやく読みたいな
 
-two:
-  user: two
-  commentable: two
-  commentable_type: Commentable
-  content: MyString
+comment_for_report_by_alice:
+  user: bob
+  commentable: report_by_alice
+  commentable_type: Report
+  content: がんばってください！
+
+comment_for_book_by_bob:
+  user: alice
+  commentable: report_by_alice
+  commentable_type: Report
+  content: ありがとうございます！がんばります！
