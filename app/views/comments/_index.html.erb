@@ -8,11 +8,7 @@
       <% commentable.comments.each do |comment| %>
         <tr>
           <td>
-            <% unless comment.user.name.empty? %>
-              <%= comment.user.name %>
-            <% else %>
-              <%= comment.user.email %>
-            <% end %>
+            <%= comment.user.name_or_email %>
           </td>
           <td><%= l(comment.created_at.in_time_zone('Tokyo'), format: :default) %></td>
           <td><%= comment.text %></td>

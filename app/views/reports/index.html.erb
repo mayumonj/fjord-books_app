@@ -16,11 +16,7 @@
         <td><%= report.title %></td>
         <td><%= l(report.created_at.in_time_zone('Tokyo'), format: :default) %></td>
         <td>
-          <% unless report.user.name.empty? %>
-            <%= report.user.name %>
-          <% else %>
-            <%= report.user.email %>
-          <% end %>
+          <%= report.user.name_or_email %>
         </td>
         <td><%= link_to t('views.common.show'), report %></td>
       </tr>
