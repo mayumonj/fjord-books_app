@@ -42,7 +42,7 @@ class ReportsController < ApplicationController
 
   def destroy
     if current_user == @report.user
-      @report.destroy
+      @report.destroy!
       redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
     else
       render403
