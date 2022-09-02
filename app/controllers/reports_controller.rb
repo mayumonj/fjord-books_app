@@ -58,8 +58,4 @@ class ReportsController < ApplicationController
   def report_params
     params.require(:report).permit(:title, :text)
   end
-
-  def render403
-    render file: Rails.root.join('public/403.html'), layout: false, status: :forbidden
-  end
 end
