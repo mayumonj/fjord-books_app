@@ -7,11 +7,11 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     comment.commentable = commentable(*(request.path.split('/')[1, 2]))
     comment.user = current_user
-    begin
+    if comment.valid?
       comment.save!
       redirect_to comment.commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
-    rescue StandardError => e
-      redirect_to comment.commentable, notice: e.message
+    else
+      redirect_to comment.commentable, alert: t('errors.format', attribute: Comment.model_name.human, message: t('errors.messages.invalid'))
     end
   end
 
