@@ -16,9 +16,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy if current_user == @comment.user
-    respond_to do |format|
-      format.html { redirect_to @comment.commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
+    if current_user == @comment.user
+      @comment.destroy!
+      redirect_to @comment.commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
+    else
+      render403
     end
   end
 
