@@ -52,6 +52,7 @@ class BooksTest < ApplicationSystemTestCase
     visit book_url(@book)
     click_on '編集', match: :prefer_exact
 
+    fill_in 'タイトル', with: ''
     fill_in 'タイトル', with: '更新したタイトル'
     fill_in 'メモ', with: '更新したメモ'
     click_on '更新する'
