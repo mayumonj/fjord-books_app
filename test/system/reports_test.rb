@@ -13,6 +13,30 @@ class ReportsTest < ApplicationSystemTestCase
   test 'visiting the index' do
     visit reports_url
     assert_selector 'h1', text: '日報'
+    assert_selector 'th', text: 'タイトル'
+    assert_selector 'th', text: '作成者'
+    assert_selector 'th', text: '作成日'
+    assert_selector 'td', text: '学習100日目'
+    assert_selector 'td', text: 'Bob'
+    assert_selector 'td', text: Date.current.strftime('%Y/%m/%d').to_s
+  end
+
+  test 'users can edit or delete their own reports' do
+    my_report = reports(:report_by_alice)
+    Report.where.not(id: my_report.id).destroy_all
+    visit reports_url
+    assert_selector 'a', text: '詳細'
+    assert_selector 'a', text: /^編集/
+    assert_selector 'a[data-method=delete]', text: '削除'
+  end
+
+  test 'users cannot edit or delete the reports created by others' do
+    his_report = reports(:report_by_bob)
+    Report.where.not(id: his_report.id).destroy_all
+    visit reports_url
+    assert_selector 'a', text: '詳細'
+    assert_no_selector 'a', text: /^編集/
+    assert_no_selector 'a[data-method=delete]', text: '削除'
   end
 
   test 'creating a Report' do

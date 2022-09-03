@@ -14,6 +14,16 @@ class BooksTest < ApplicationSystemTestCase
   test 'visiting the index' do
     visit books_url
     assert_selector 'h1', text: '本'
+    assert_selector 'th', text: 'タイトル'
+    assert_selector 'th', text: 'メモ'
+    assert_selector 'th', text: '著者'
+    assert_selector 'th', text: '画像'
+    assert_selector 'td', text: 'プロを目指す人のためのRuby入門'
+    assert_selector 'td', text: '名著です！！！'
+    assert_selector 'td', text: 'alice'
+    assert_selector 'a', text: '詳細'
+    assert_selector 'a', text: '編集', match: :prefer_exact
+    assert_selector 'a[data-method=delete]', text: '削除'
   end
 
   test 'creating a Book' do
