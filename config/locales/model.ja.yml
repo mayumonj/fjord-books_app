@@ -29,25 +29,15 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  common:
-    views:
-      title:
-        index: "%{model}"
-        new: "New %{model}"
-        edit: "Edit %{model}"
-    actions:
-      show: 'Show'
-      edit: 'Edit'
-      destroy: 'Destroy'
-      back: 'Back'
-    messages:
-      confirm: 'Are you sure?'
-  notice:
-    create: "%{model} was successfully created."
-    update: "%{model} was successfully updated."
-    delete: "%{model} was successfully deleted."
-  helpers:
-    submit:
-      create: "Create %{model}"
-      update: "Update %{model}"
+ja:
+  activerecord:
+    models:
+      book: 書籍
+    attributes:
+      book:
+        title: 題名
+        memo: メモ
+        author: 著者
+        picture: 画像
+        created_at: 作成日
+        updated_at: 更新日

@@ -29,25 +29,25 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
+ja:
   common:
     views:
       title:
-        index: "%{model}"
-        new: "New %{model}"
-        edit: "Edit %{model}"
+        index: "%{model}一覧"
+        new: "新規%{model}"
+        edit: "%{model}編集"
     actions:
-      show: 'Show'
-      edit: 'Edit'
-      destroy: 'Destroy'
-      back: 'Back'
+      show: '詳細'
+      edit: '編集'
+      destroy: '削除'
+      back: '戻る'
     messages:
-      confirm: 'Are you sure?'
+      confirm: '本当に実行しますか？'
   notice:
-    create: "%{model} was successfully created."
-    update: "%{model} was successfully updated."
-    delete: "%{model} was successfully deleted."
+    create: "%{model}の登録が完了しました。"
+    update: "%{model}の更新が完了しました。"
+    delete: "%{model}の削除が完了しました。"
   helpers:
     submit:
-      create: "Create %{model}"
-      update: "Update %{model}"
+      create: "%{model}を登録する"
+      update: "%{model}を更新する"
