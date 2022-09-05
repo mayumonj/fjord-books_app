@@ -226,6 +226,8 @@ en:
       title_show: "%{name} Details"
       sign_out: "Sign out"
       minimum_length: "%{length} characters minimum"
+      index: "List"
+      index_of: "List of %{name}"
   controllers:
     common:
       notice_create: "%{name} was successfully created."
@@ -240,3 +242,13 @@ en:
     registrations:
       edit:
         title: "Edit account"
+  relationship:
+    follow: "Follow"
+    unfollow: "Unfollow"
+    follow_message: "Followed!"
+    unfollow_message: "Unfollowed"
+    followee: "Followee"
+    follower: "Follower"
+    user_not_found: "The user is not found."
+    follow_failed: "Follow failed. Please try again."
+    unfollow_failed: "Unfollow failed. Please try again."

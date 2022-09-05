@@ -218,6 +218,8 @@ ja:
       title_show: "%{name}の詳細"
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
+      index: 一覧
+      index_of: "%{name}一覧"
     pagination:
       first: '最初'
       last: '最後'
@@ -238,3 +240,13 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  relationship:
+    follow: "フォローする"
+    unfollow: "フォロー解除"
+    follow_message: "フォローしました"
+    unfollow_message: "フォロー解除しました"
+    followee: "フォロー"
+    follower: "フォロワー"
+    user_not_found: "対象のユーザが見つかりませんでした"
+    follow_failed: "フォローに失敗しました。恐れ入りますが時間をおいて再度お試しください。"
+    unfollow_failed: "フォロー解除に失敗しました。恐れ入りますが時間をおいて再度お試しください。"

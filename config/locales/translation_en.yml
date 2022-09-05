@@ -2,6 +2,8 @@ en:
   activerecord:
     models:
       book: Book  #g
+      user: User
+      relationship: Relationship
 
     attributes:
       book:
@@ -15,3 +17,8 @@ en:
         address: Address
         self_introduction: Self introduction
         avatar: "User image"
+        followees: Followees
+        followers: Followers
+      relationship:
+        followee: Followee
+        follower: Follower
