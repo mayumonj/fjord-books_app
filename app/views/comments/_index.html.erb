@@ -1,0 +1,24 @@
+<h2><%= Comment.model_name.human %></h2>
+
+<% if commentable.comments.empty? %>
+  <p><%= t('comments.not_commented') %></p>
+<% else %>
+  <table>
+    <tbody>
+      <% commentable.comments.each do |comment| %>
+        <tr>
+          <td>
+            <%= comment.user.name_or_email %>
+          </td>
+          <td><%= l(comment.created_at.in_time_zone('Tokyo'), format: :default) %></td>
+          <td><%= comment.text %></td>
+          <% if comment.user == current_user %>
+            <td><%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= render 'comments/form', {comment: commentable.comments.build, commentable: } %>

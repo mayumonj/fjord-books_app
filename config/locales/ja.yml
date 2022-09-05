@@ -250,6 +250,12 @@ ja:
       notice: "フォローしました。"
     destroy:
       notice: "フォロー解除しました。"
+  comments:
+    create: コメントする
+    not_commented: コメントはまだありません。
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
   # devise-i18n-viewsをオーバーライド
   devise:
     registrations:
