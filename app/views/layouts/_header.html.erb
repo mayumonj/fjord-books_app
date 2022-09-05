@@ -1,0 +1,12 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav>
+      <% if user_signed_in? %>
+        <%= link_to "本一覧", books_path %>
+        <%= link_to "ユーザー一覧", users_path %>
+        <%= link_to "アカウント情報", user_path(current_user) %>
+        <%= link_to t('devise.shared.links.sign_out'), destroy_user_session_path, method: :delete %>
+      <% end %>
+    </nav>
+  </div>
+</header>
